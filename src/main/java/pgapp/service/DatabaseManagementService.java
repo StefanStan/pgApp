@@ -58,9 +58,9 @@ public class DatabaseManagementService {
             r.close();
 
             final int dcertExitCode = process.waitFor();
-            LOGGER.info("Database " + dbServerName + action + " process finished with exit code: " + dcertExitCode);
+            LOGGER.info("Database " + dbServerName + " " + action + " process finished with exit code: " + dcertExitCode);
             if (dcertExitCode != 0) {
-                throw new RuntimeException("Database " + dbServerName + action + " process din not finished successfuly. Exit code: " + dcertExitCode);
+                throw new RuntimeException("Database " + dbServerName + " " + action + " process din not finished successfuly. Exit code: " + dcertExitCode);
             }
             return new DatabaseManagementDetailsObject(0);
 
