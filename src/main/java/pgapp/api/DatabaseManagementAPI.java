@@ -36,11 +36,9 @@ public class DatabaseManagementAPI {
 
     @PostMapping("/basebackup")
     public DatabaseManagementDetailsObject basebackupDB(
-            @RequestParam("dbServerName") String dbServerName,
-            @RequestParam("ip") String ip,
-            @RequestParam("port") String port
+            @RequestParam("dbServerName") String dbServerName
     ) {
-        return dbService.basebackupDB(dbServerName, ip, port);
+        return dbService.basebackupDB(dbServerName);
     }
 
     @PostMapping("/pitr")

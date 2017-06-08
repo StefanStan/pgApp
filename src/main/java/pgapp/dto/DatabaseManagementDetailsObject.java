@@ -5,17 +5,27 @@ package pgapp.dto;
  */
 public class DatabaseManagementDetailsObject {
 
-    private int status;
+    private int operationStatus;
+    private Object operationResult;
 
-    public DatabaseManagementDetailsObject(int status) {
-        this.status = status;
+    public DatabaseManagementDetailsObject(int operationStatus, Object operationResult) {
+        this.operationStatus = operationStatus;
+        this.operationResult = operationResult;
     }
 
-    public int getStatus() {
-        return this.status;
+    public int getOperationStatus() {
+        return this.operationStatus;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setOperationStatus(int operationStatus) {
+        this.operationStatus = operationStatus;
+    }
+
+    public Object getOperationResult() {
+        return this.operationResult;
+    }
+
+    public void setOperationResult(Object operationResult) {
+        this.operationResult = operationResult;
     }
 }
