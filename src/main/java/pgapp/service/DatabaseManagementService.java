@@ -42,9 +42,10 @@ public class DatabaseManagementService {
         String serverPath = env.getProperty("serverScriptsPath");
 
         final List<String> baseCmds = new ArrayList<>();
-        baseCmds.add("sh");
+        baseCmds.add("nuhup");
         baseCmds.add(serverPath + dbServerName);
         baseCmds.add(action);
+        baseCmds.add("&");
         final ProcessBuilder pb = new ProcessBuilder(baseCmds);
 
         try {
