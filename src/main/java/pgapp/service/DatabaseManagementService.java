@@ -42,6 +42,7 @@ public class DatabaseManagementService {
         String serverPath = env.getProperty("serverScriptsPath");
 
         final List<String> baseCmds = new ArrayList<>();
+        baseCmds.add("sh");
         baseCmds.add(serverPath + dbServerName);
         baseCmds.add(action);
         final ProcessBuilder pb = new ProcessBuilder(baseCmds);
