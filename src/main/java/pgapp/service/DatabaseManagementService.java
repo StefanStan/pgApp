@@ -47,22 +47,21 @@ public class DatabaseManagementService {
         final ProcessBuilder pb = new ProcessBuilder(baseCmds);
 
         try {
-            Runtime rt = Runtime.getRuntime();
-            final Process process = rt.exec("sh "+ serverPath + dbServerName + " " + action);
+            final Process process = pb.start();
 
-//            final BufferedReader r = new BufferedReader(new InputStreamReader(process.getErrorStream(), "UTF8"));
-//            String line = r.readLine();
-//            while (line != null) {
-//                LOGGER.info(line);
-//                line = r.readLine();
-//            }
-//            r.close();
-//
-//            final int dcertExitCode = process.waitFor();
-//            LOGGER.info("Database " + dbServerName + " " + action + " process finished with exit code: " + dcertExitCode);
-//            if (dcertExitCode != 0) {
-//                throw new RuntimeException("Database " + dbServerName + " " + action + " process din not finished successfuly. Exit code: " + dcertExitCode);
-//            }
+            final BufferedReader r = new BufferedReader(new InputStreamReader(process.getErrorStream(), "UTF8"));
+            String line = r.readLine();
+            while (line != null) {
+                LOGGER.info(line);
+                line = r.readLine();
+            }
+            r.close();
+
+            final int dcertExitCode = process.waitFor();
+            LOGGER.info("Database " + dbServerName + " " + action + " process finished with exit code: " + dcertExitCode);
+            if (dcertExitCode != 0) {
+                throw new RuntimeException("Database " + dbServerName + " " + action + " process din not finished successfuly. Exit code: " + dcertExitCode);
+            }
             return new DatabaseManagementDetailsObject(0);
 
         } catch (Exception t) {
