@@ -156,7 +156,7 @@ public class DatabaseManagementService {
             Pattern pattern = Pattern.compile("port[ ]*=[ ]*[0-9]+");
             Matcher matcher = pattern.matcher(postgresqlConfData);
             if (matcher.find()) {
-                return matcher.group(1).split("=")[1].trim();
+                return matcher.group().split("=")[1].trim();
             } else {
                 return null;
             }
