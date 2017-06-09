@@ -27,7 +27,6 @@ import java.util.regex.Pattern;
  * @author Stefan Stan on 06.06.2017.
  */
 @Service
-@PropertySource(value = "classpath:pgapp/application.properties")
 public class DatabaseManagementService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseManagementService.class);
